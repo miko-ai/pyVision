@@ -29,7 +29,7 @@ title:               pyVision
 tagline:             'A Machine Learning and Signal Processing toolbox'
 description:         'A Machine Learning and Signal Processing library'
 url:                 http://pi19404.github.io
-baseurl:             /pyVision
+baseurl:             /
 paginate:            50
 
 #encoding: UTF-8
@@ -44,7 +44,6 @@ author:
   email:             pi19404@gmail.com
   github : 	     pi19404
   blogger :	      https://pi-virtualworld@blogspot.com
-  wordpress : 	 	http://eternalwandering777.wordpress.com
   scribd	:	http://www.scribd.com/pi19404
   github1	:	http://www.github.com/pi19404/OpenVision
   github2	:	http://www.github.com/pi19404/OpenVision

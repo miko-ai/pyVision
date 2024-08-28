@@ -1,81 +1,145 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>{{page.title}} | {{site.name}}</title>
 
-  {% include head.html %}
-
-  <body>
-
-    {% include sidebar.html %}
-
-    <!-- Wrap is the content to shift when toggling the sidebar. We wrap the
-         content to avoid any CSS collisions with our real content. -->
-    <div class="wrap">
+    <style>
+        /* General Navbar Styles */
+        .navbar-nav .nav-link {
+            padding: 10px 15px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
       
+        /* Default State */
+        .navbar-nav .nav-link {
+            background-color: #f8f9fa;
+            color: #000;
+        }
+      
+        /* Hover State */
+        .navbar-nav .nav-link:hover {
+            background-color: #e2e6ea;
+            color: #000;
+        }
+      
+        /* Active State */
+        .navbar-nav .nav-link.active {
+            background-color: #007bff;
+            color: #fff;
+        }
+      </style>
+      
+    {% seo %}
+
+    <link rel="shortcut icon" type="image/x-icon" href="{{site.baseurl}}/{{site.favicon}}">
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+
+    <!-- Google Fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Lora:400,400i,700" rel="stylesheet">
+
+    <!-- Bootstrap Modified -->
+    <link rel="stylesheet" href="{{site.baseurl}}/assets/css/main.css">
+
+    <!-- Theme Stylesheet -->
+    <link rel="stylesheet" href="{{site.baseurl}}/assets/css/theme.css">
+
+    <!-- Jquery on header to make sure everything works, the rest  of the scripts in footer for fast loading -->
+    <script
+    src="https://code.jquery.com/jquery-3.3.1.min.js"
+    integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+    crossorigin="anonymous"></script>
+
+    {% include tracking-header.html %}
+
+
+</head>
+
+<body class="{% if page.url == "/" %} homefirstpage {% endif %}">
+
+    <!-- Navbar -->
+    <!-- <div class="container text-center">
+    <img src="https://miro.medium.com/v2/resize:fit:336/1*l5simldEisscY_QlppeMwg.jpeg" alt="Blog Header Image" class="img-fluid" style="max-width: 100%; height: auto; margin-bottom: 20px;">
+</div> -->
+<div class="container">
+    <div class="row align-items-center">
+        <!-- Site Title on the Left -->
+        <div class="col-md-10">
+            <a style="font-size: 3rem;" class="mb-2" href="{{ site.baseurl }}/index.html">
+                <strong>{{site.name}}</strong>
+            </a>
+        </div>
+        
+        <!-- RevolverMaps Widget on the Right -->
+        <div class="col-md-2 text-right">
+            <div class="widget">
+                <!-- Replace with your actual RevolverMaps HTML snippet -->
+            <script type="text/javascript" src="//rf.revolvermaps.com/0/0/8.js?i=50lvdsqgv31&amp;m=0&amp;c=ff0000&amp;cr1=ffffff&amp;f=arial&amp;l=33" async="async"></script>
+            </div>
+        </div>
+    </div>
+</div>
+    
+
+    <!-- Search Results
+    <div id="lunrsearchresults">
+        <ul class="mb-0"></ul>
+    </div> -->
+
+    <!-- Content -->
+    
+        <!-- Main content area -->
         <div class="container">
-          <h1 class="header">
-            <a href="/" title="Home">{{ site.title }}</a></br>
-            <small>{{ site.tagline }}</small>
-          </h1>
+            <div class="row">
+                <!-- Main content area -->
+                <div class="col-md-12">
+                    <main role="main" class="site-content">
+                        {{ content }}
+                    </main>
+                </div>
+        
 
-        <section id="downloads" class="clearfix">
-          <a href="https://github.com/pi19404/pyVision/zipball/master" id="download-zip" class="button"><span>Download .zip</span></a>
-          <a href="https://github.com/pi19404/pyVision/tarball/master" id="download-tar-gz" class="button"><span>Download.tar.gz</span></a>
-          <a href="https://github.com/pi19404/pyVision" id="view-on-github" class="button"><span>View on GitHub</span></a>
-		
-	   <hr>
-          </section>
+            </div>
+        </div>
+
+
     
-	</br>	</br>
-      <div class="content">
-        {{ content }}
-      </div>
-    </div>
 
-      
-       <footer>
-          pyVision is maintained by <a href="https://github.com/pi19404">pi19404</a><br>
-        </footer>
-    
-    </div>
- <label for="sidebar-checkbox" class="sidebar-toggle"></label>
 
-    <script>
-      (function(document) {
-        var toggle = document.querySelector('.sidebar-toggle');
-        var sidebar = document.querySelector('#sidebar');
-        var checkbox = document.querySelector('#sidebar-checkbox');
+    <!-- Scripts: popper, bootstrap, theme, lunr -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
 
-        document.addEventListener('click', function(e) {
-          var target = e.target;
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
 
-          if(!checkbox.checked ||
-             sidebar.contains(target) ||
-             (target === checkbox || target === toggle)) return;
+    <script src="{{site.baseurl}}/assets/js/theme.js"></script>
 
-          checkbox.checked = true;
-        }, false);
-      })(document);
-    </script>
-<script type="text/javascript">
-  (function() {
-    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
-    po.src = 'https://apis.google.com/js/plusone.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
-  })();
-</script>
-    <script type="text/javascript">
-    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
-    var disqus_shortname = 'pyvision'; // required: replace example with your forum shortname
-    var disqus_identifier = '{{ page.url }}';
-    var disqus_url = 'http://pyvision.github.com{{ page.url }}';
-    /* * * DON'T EDIT BELOW THIS LINE * * */
-    (function () {
-        var s = document.createElement('script'); s.async = true;
-        s.type = 'text/javascript';
-        s.src = '//' + disqus_shortname + '.disqus.com/count.js';
-        (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
-    }());
-    </script>
 
-  </body>
+    <!-- Footer -->
+    <!-- <footer class="bg-white border-top p-3 text-muted small">
+        <div class="container">
+        <div class="row align-items-center justify-content-between">
+            <div>
+                <span class="navbar-brand mr-2 mb-0"><strong>Mundana</strong></span>
+                <span>Copyright © <script>document.write(new Date().getFullYear())</script>.</span>
+
+              
+                <a class="text-dark ml-1" target="_blank" href="https://github.com/wowthemesnet/mundana-theme-jekyll"><i class="fab fa-github"></i> Fork on Github</a>
+
+            </div>
+            <div>
+                Made with <a target="_blank" class="text-dark font-weight-bold" href="https://www.wowthemes.net/mundana-jekyll-theme/"> Mundana Jekyll Theme </a> by <a class="text-dark" target="_blank" href="https://www.wowthemes.net">WowThemes</a>.
+            </div>
+        </div>
+        </div>
+    </footer> -->
+
+    {% include tracking-footer.html %}
+
+</body>
+
 </html>
